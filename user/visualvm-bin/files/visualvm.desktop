@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=VisualVM
+GenericName=Java VM monitoring and troubleshooting tool
+Icon=visualvm
+Exec=/usr/bin/visualvm
+Categories=Development;
