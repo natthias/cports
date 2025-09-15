@@ -1,0 +1,10 @@
+pkgname = "keepassxc-proxy-rust"
+pkgver = "0.2.1"
+pkgrel = 0
+build_style = "cargo"
+hostmakedepends = ["cargo-auditable", "pkgconf"]
+pkgdesc = "Proxy between Native Messaging browser extension and KeePassXC"
+license = "GPL-3.0-or-later"
+url = "https://github.com/varjolintu/keepassxc-proxy-rust"
+source = f"{url}/archive/refs/tags/0.2.1.tar.gz"
+sha256 = "90676ac5be612cf44aa44d618996f94f1cb7aca023a7f4d2f6240dbe97105db4"
