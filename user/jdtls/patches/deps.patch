@@ -1,0 +1,88 @@
+diff --git a/org.eclipse.jdt.ls.core/pom.xml b/org.eclipse.jdt.ls.core/pom.xml
+index 0d97105..1a7c4dc 100644
+--- a/org.eclipse.jdt.ls.core/pom.xml
++++ b/org.eclipse.jdt.ls.core/pom.xml
+@@ -12,83 +12,6 @@
+ 	<name>${base.name} :: Core</name>
+ 	<build>
+ 		<plugins>
+-			<plugin>
+-				<groupId>org.codehaus.gmavenplus</groupId>
+-				<artifactId>gmavenplus-plugin</artifactId>
+-				<version>4.3.1</version>
+-				<executions>
+-					<execution>
+-						<?m2e ignore?>
+-						<phase>generate-resources</phase>
+-						<goals>
+-							<goal>execute</goal>
+-						</goals>
+-					</execution>
+-				</executions>
+-				<configuration>
+-					<scripts>
+-						<script>
+-								import groovy.json.JsonSlurper
+-								import groovy.json.JsonOutput
+-
+-								import java.net.http.HttpClient
+-								import java.net.http.HttpClient.Redirect
+-								import java.net.http.HttpRequest
+-								import java.net.http.HttpResponse.BodyHandlers
+-								import java.util.concurrent.CompletableFuture
+-								import java.util.concurrent.ExecutorService
+-								import java.util.concurrent.Executors
+-								import java.util.stream.Collectors
+-
+-
+-								def checksumsFile = new File(project.basedir.absolutePath, "gradle/checksums/checksums.json")
+-								if (System.getProperty("eclipse.jdt.ls.skipGradleChecksums") != null &amp;&amp; checksumsFile.exists()) {
+-									println "Skipping gradle wrapper validation checksums ..."
+-									return
+-								}
+-
+-								def versionUrl = new URL("https://services.gradle.org/versions/all")
+-								def versionStr = versionUrl.text;
+-								def versionsFile = new File(project.basedir.absolutePath, "gradle/checksums/versions.json")
+-								versionsFile.parentFile.mkdirs() //just in case
+-								versionsFile.write(versionStr)
+-								println "Wrote to ${versionsFile}"
+-
+-								def versions = new JsonSlurper().parseText(versionStr)
+-
+-								class Checksum {
+-									String wrapperChecksumUrl;
+-									String sha256
+-								}
+-								def checksums = []
+-								versions.each {
+-                                    boolean isNonRelease = it.nightly || it.snapshot || (it.rcFor != "") || it.broken
+-									if (it.wrapperChecksumUrl == null || (System.getProperty("eclipse.jdt.ls.onlyGradleReleases") &amp;&amp; isNonRelease)) {
+-										return
+-									}
+-									checksums.add(new Checksum(wrapperChecksumUrl: it.wrapperChecksumUrl, sha256: it.wrapperChecksum));
+-								}
+-								def json = JsonOutput.toJson(checksums)
+-								checksumsFile.write(JsonOutput.prettyPrint(json))
+-								println "Wrote to ${checksumsFile}"
+-						</script>
+-					</scripts>
+-				</configuration>
+-				<dependencies>
+-					<dependency>
+-						<groupId>org.apache.groovy</groupId>
+-						<artifactId>groovy</artifactId>
+-						<version>${groovy-version}</version>
+-						<scope>runtime</scope>
+-					</dependency>
+-					<dependency>
+-						<groupId>org.apache.groovy</groupId>
+-						<artifactId>groovy-json</artifactId>
+-						<version>${groovy-version}</version>
+-						<scope>runtime</scope>
+-					</dependency>
+-				</dependencies>
+-			</plugin>
+ 			<plugin>
+ 				<groupId>io.github.git-commit-id</groupId>
+ 				<artifactId>git-commit-id-maven-plugin</artifactId>
