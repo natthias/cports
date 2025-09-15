@@ -1,0 +1,13 @@
+diff --git a/meson.build b/meson.build
+index e71138c..176c097 100644
+--- a/meson.build
++++ b/meson.build
+@@ -34,7 +34,7 @@ custom_target(
+     + ' -X main.gjs='
+     + find_program('gjs').full_path()
+     + ' -X main.bash='
+-    + find_program('bash').full_path(),
++    + find_program('sh').full_path(),
+   ],
+   output: 'ags',
+   install: true,

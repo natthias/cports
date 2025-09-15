@@ -1,0 +1,13 @@
+diff --git a/cli/lib/esbuild.go b/cli/lib/esbuild.go
+index 11a60bb..9e9ec74 100644
+--- a/cli/lib/esbuild.go
++++ b/cli/lib/esbuild.go
+@@ -68,7 +68,7 @@ var sassPlugin api.Plugin = api.Plugin{
+ 
+ 		build.OnLoad(api.OnLoadOptions{Filter: `.*\.scss$`, Namespace: "sass"},
+ 			func(args api.OnLoadArgs) (api.OnLoadResult, error) {
+-				sass := Exec("sass", args.Path, "-I", filepath.Dir(args.Path))
++				sass := Exec("sassc", args.Path, "-I", filepath.Dir(args.Path))
+ 				// if cwd is the path of the currently loaded file sass warns about it
+ 				// in order to avoid the deprecation warning we explicitly set it to something else
+ 				sass.Dir = "/"

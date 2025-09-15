@@ -1,0 +1,13 @@
+diff --git a/meson.build b/meson.build
+index 176c097..deccfa2 100644
+--- a/meson.build
++++ b/meson.build
+@@ -28,7 +28,7 @@ custom_target(
+     '-o', meson.project_build_root() / 'ags',
+     '-ldflags',
+     '-X main.gtk4LayerShell='
+-    + dependency('gtk4-layer-shell-0').get_variable('libdir') / 'libgtk4-layer-shell.so'
++    + dependency('gtk4-layer-shell-0').get_variable('libdir') / 'libgtk4-layer-shell.so.0'
+     + ' -X main.agsJsPackage='
+     + pkgdatadir / 'js'
+     + ' -X main.gjs='
