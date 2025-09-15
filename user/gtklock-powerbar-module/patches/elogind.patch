@@ -1,0 +1,17 @@
+diff --git a/source.c b/source.c
+index 5695d42..2220ac5 100644
+--- a/source.c
++++ b/source.c
+@@ -28,9 +28,9 @@ static int self_id;
+ 
+ static gboolean show_labels = FALSE;
+ static gboolean linked_buttons = FALSE;
+-static gchar *reboot_command = "systemctl reboot";
+-static gchar *poweroff_command = "systemctl -i poweroff";
+-static gchar *suspend_command = "systemctl suspend";
++static gchar *reboot_command = "loginctl reboot";
++static gchar *poweroff_command = "loginctl -i poweroff";
++static gchar *suspend_command = "loginctl suspend";
+ static gchar *userswitch_command = NULL;
+ static gchar *logout_command = NULL;
+ 
