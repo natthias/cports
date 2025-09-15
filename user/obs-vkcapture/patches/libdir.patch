@@ -1,0 +1,13 @@
+diff --git a/src/obs-gamecapture.in b/src/obs-gamecapture.in
+index 3713a47..2e30656 100755
+--- a/src/obs-gamecapture.in
++++ b/src/obs-gamecapture.in
+@@ -8,7 +8,7 @@ if [ "$#" -eq 0 ]; then
+     exit 1
+ fi
+ 
+-OBS_GLCAPTURE_LIB="@CMAKE_INSTALL_PREFIX@/\$LIB/obs_glcapture/libobs_glcapture.so"
++OBS_GLCAPTURE_LIB="@CMAKE_INSTALL_PREFIX@/lib/obs_glcapture/libobs_glcapture.so"
+ 
+ exec env LD_PRELOAD="${LD_PRELOAD}${LD_PRELOAD:+:}${OBS_GLCAPTURE_LIB}" \
+     OBS_VKCAPTURE=1 \
