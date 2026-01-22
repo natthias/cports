@@ -1,0 +1,13 @@
+diff --git a/src/meson.build b/src/meson.build
+index df7a164..d68613c 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -1,7 +1,7 @@
+ glslang = find_program('glslang', 'glslangValidator')
+ 
+ if get_option('dynamic_string_tokens')
+-  ld_prefix = get_option('prefix') + '/\$LIB/'
++  ld_prefix = get_option('prefix') + '/lib/'
+ else
+   ld_prefix = join_paths(get_option('prefix') ,get_option('libdir')) + '/'
+ endif

@@ -1,0 +1,18 @@
+diff --git a/src/gl/shim.c b/src/gl/shim.c
+index 26c53b2..376814b 100644
+--- a/src/gl/shim.c
++++ b/src/gl/shim.c
+@@ -120,11 +120,11 @@ static void loadMangoHud() {
+ 
+     if (!mangoHudLoaded)
+     {
+-        handle = dlopen("${ORIGIN}/libMangoHud_opengl.so", RTLD_NOW | RTLD_LOCAL | RTLD_DEEPBIND);
++        handle = dlopen("/usr/lib/mangohud/libMangoHud_opengl.so", RTLD_NOW | RTLD_LOCAL | RTLD_DEEPBIND);
+         if (handle) mangoHudLoaded = true;
+         else
+         {
+-            fprintf(stderr, "shim: Failed to load from ${ORIGIN}/libMangoHud_opengl.so: %s\n", dlerror());
++            fprintf(stderr, "shim: Failed to load from /usr/lib/mangohud/libMangoHud_opengl.so: %s\n", dlerror());
+             handle = RTLD_NEXT;
+         }
+     }
