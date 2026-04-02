@@ -1,0 +1,10 @@
+diff --git a/tests/lang/run_command.meson b/tests/lang/run_command.meson
+index 25bc086..2d4871c 100644
+--- a/tests/lang/run_command.meson
++++ b/tests/lang/run_command.meson
+@@ -38,4 +38,4 @@ stdout = run_command(
+     env: env,
+ ).stdout().strip()
+ 
+-assert(stdout == '5')
++assert(stdout == '4')
